@@ -36,7 +36,14 @@ https://github.com/fulcrumgenomics/fgbio/wiki
 双端UMI在<------------->CallDuplexConsensusReads
 
 单端UMI在<------------->GroupReadsByUmi（adjacency）
-双端UMI在<------------->GroupReadsByUmi（paired）
+双端UMI在<------------->GroupReadsByUmi（paired)
+
+### CallDuplexConsensusReads与FilterConsensusReads
+
+在fgbio中对于ConsensusReads与FilterConsensusReads最小的支持数参数举例--min-reads 10 5 3
+In each case if fewer than three values are supplied, the last value is repeated (i.e. 80 40 -> 80 40 40 and 0.1 -> 0.1 0.1 0.1. The first value applies to the final consensus read, the second value to one single-strand consensus, and the last value to the other single-strand consensus. It is required that if values two and three differ, the more stringent value comes earlier.
+因此如果你对数据存在链特异性的问题会丢掉很多数据我们目前设置的是--min-reads 1 0 0系统参数是--min-reads 1 1 1
+
 
 
             
