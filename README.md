@@ -45,11 +45,22 @@ In each case if fewer than three values are supplied, the last value is repeated
 因此如果你对数据存在链特异性的问题会丢掉很多数据我们目前设置的是--min-reads 1 0 0系统参数是--min-reads 1 1 1
 
 
+### fastp与UMI
+https://github.com/OpenGene/fastp
+fastp --in1 sample.R1.fq --in2 sample.R2.fq -w 10 -U --umi_loc=per_read --umi_len 3 --umi_skip 2 --out1 sample.clean.1.fq --out2 sample.clean.2.fq -l 150 -j out.json -h out.html
+该命令会将UMI序列添加到序列标签上
+            
+The original read:
+@NS500713:64:HFKJJBGXY:1:11101:1675:1101 1:N:0:TATAGCCT+GACCCCCA
+AAAAAAAAGCTACTTGGAGTACCAATAATAAAGTGAGCCCACCTTCCTGGTACCCAGACATTTCAGGAGGTCGGGAAA
++
+6AAAAAEEEEE/E/EA/E/AEA6EE//AEE66/AAE//EEE/E//E/AA/EEE/A/AEE/EEA//EEEEEEEE6EEAA
+  
+After:
+@A00153:435:HNGTVDSXX:1:1101:3712:1000:GCTGTCA_GTCCTCT 1:N:0:GAATTCGT+TTATGAGT
 
-            
-            
-            
-            
+但是如果你使用bcl2fastq,就是分隔符不一样
+@A00153:435:HNGTVDSXX:1:1101:3712:1000:GCTGTCA+GTCCTCT 1:N:0:GAATTCGT+TTATGAGT
 
 
 
