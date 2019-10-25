@@ -32,13 +32,13 @@ https://github.com/fulcrumgenomics/fgbio/wiki
 
 ### 单双端UMI
 
-单端UMI在<------------->CallMolecularConsensusReads
+       单端UMI在<------------->CallMolecularConsensusReads
 
-双端UMI在<------------->CallDuplexConsensusReads
+        双端UMI在<------------->CallDuplexConsensusReads
 
-单端UMI在<------------->GroupReadsByUmi（adjacency）
+        单端UMI在<------------->GroupReadsByUmi（adjacency）
 
-双端UMI在<------------->GroupReadsByUmi（paired)
+        双端UMI在<------------->GroupReadsByUmi（paired)
 
 ### CallDuplexConsensusReads与FilterConsensusReads
 
@@ -49,20 +49,22 @@ In each case if fewer than three values are supplied, the last value is repeated
 
 ### fastp与UMI
 https://github.com/OpenGene/fastp
-fastp --in1 sample.R1.fq --in2 sample.R2.fq -w 10 -U --umi_loc=per_read --umi_len 3 --umi_skip 2 --out1 sample.clean.1.fq --out2 sample.clean.2.fq -l 150 -j out.json -h out.html
-该命令会将UMI序列添加到序列标签上
-            
+
+        fastp --in1 sample.R1.fq --in2 sample.R2.fq -w 10 -U --umi_loc=per_read --umi_len 3 --umi_skip 2 --out1 sample.clean.1.fq --out2 sample.clean.2.fq -l 150 -j out.json -h out.html            
 The original read:
-@NS500713:64:HFKJJBGXY:1:11101:1675:1101 1:N:0:TATAGCCT+GACCCCCA
-AAAAAAAAGCTACTTGGAGTACCAATAATAAAGTGAGCCCACCTTCCTGGTACCCAGACATTTCAGGAGGTCGGGAAA
-+
-6AAAAAEEEEE/E/EA/E/AEA6EE//AEE66/AAE//EEE/E//E/AA/EEE/A/AEE/EEA//EEEEEEEE6EEAA
-  
+
+        @NS500713:64:HFKJJBGXY:1:11101:1675:1101 1:N:0:TATAGCCT+GACCCCCA
+        AAAAAAAAGCTACTTGGAGTACCAATAATAAAGTGAGCCCACCTTCCTGGTACCCAGACATTTCAGGAGGTCGGGAAA
+        +
+        6AAAAAEEEEE/E/EA/E/AEA6EE//AEE66/AAE//EEE/E//E/AA/EEE/A/AEE/EEA//EEEEEEEE6EEAA
+          
 After:
-@A00153:435:HNGTVDSXX:1:1101:3712:1000:GCTGTCA_GTCCTCT 1:N:0:GAATTCGT+TTATGAGT
+
+        @A00153:435:HNGTVDSXX:1:1101:3712:1000:GCTGTCA_GTCCTCT 1:N:0:GAATTCGT+TTATGAGT
 
 但是如果你使用bcl2fastq,就是分隔符不一样
-@A00153:435:HNGTVDSXX:1:1101:3712:1000:GCTGTCA+GTCCTCT 1:N:0:GAATTCGT+TTATGAGT
+
+        @A00153:435:HNGTVDSXX:1:1101:3712:1000:GCTGTCA+GTCCTCT 1:N:0:GAATTCGT+TTATGAGT
 
 
 
