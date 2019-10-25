@@ -33,9 +33,11 @@ https://github.com/fulcrumgenomics/fgbio/wiki
 ### 单双端UMI
 
 单端UMI在<------------->CallMolecularConsensusReads
+
 双端UMI在<------------->CallDuplexConsensusReads
 
 单端UMI在<------------->GroupReadsByUmi（adjacency）
+
 双端UMI在<------------->GroupReadsByUmi（paired)
 
 ### CallDuplexConsensusReads与FilterConsensusReads
